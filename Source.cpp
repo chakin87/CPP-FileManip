@@ -39,7 +39,7 @@ int main(int argc, char** argv) {
 			z = 0;
 		}
 	}
-	/*
+	
 	{
 		ChronoTimer c("coutvsprintf.csv", "Cout vs Printf", "using printf()", "console output speed", j);
 		for (int i = 0; i < j; ++i) {
@@ -54,7 +54,7 @@ int main(int argc, char** argv) {
 		}		
 	}
 
-	*/
+	
 	char pause[10];
 	std::cin >> pause;
 	
