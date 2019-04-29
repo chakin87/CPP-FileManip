@@ -8,23 +8,33 @@
 
 //Prototypes
 
-// ---------------------------------- PRACTICE CODE ----------------------------------
+// ---------------------------------- PRACTICE CODE ----------------------------------1
 
 //GLfloat triangle_vertices[] = {
-GLfloat tv[] = {
--0.5, 0.0,
- 0.5, 0.0,
- 0.0, 1.0 };
+GLfloat tv0[] = {
+-0.1, 0.0,
+ 0.1, 0.0,
+ 0.0, .2 };
 
-float tvmod[] =
+float tvmod0[] =
 { .001f, .001f,
-  .001f, .001f,
-  .001f, .001f };
+  .002f, .004f,
+  .001f, .003f };
+
+GLfloat tv1[] = {
+ 0.1, 0.0,
+ -0.1, 0.0,
+ 0.0, -.2 };
+
+float tvmod1[] =
+{ .001f, .001f,
+  .002f, .004f,
+  .001f, .003f };
 
 unsigned short timer = 0;
 
 
-void trimove(){
+void trimove(GLfloat tv[], float tvmod[]){
 
 	for (int i = 0; i < 6; ++i) {
 		if (tv[i] <= -1.0f) {
@@ -38,7 +48,12 @@ void trimove(){
 	}
 }
 
-// -------------------------------- END PRACTICE CODE --------------------------------
+// -------------------------------- END PRACTICE CODE --------------------------------1
+
+
+// ---------------------------------- PRACTICE CODE ---------------------------------2
+
+// ----------------------------------END PRACTICE CODE ---------------------------------2
 
 
 int main(int argc, char** argv) {
@@ -55,7 +70,7 @@ int main(int argc, char** argv) {
 
 
 	/* Create a windowed mode window and its OpenGL context */
-	window = glfwCreateWindow(800, 600, "OpenGL Practice Sessh", NULL, NULL);
+	window = glfwCreateWindow(800, 800, "OpenGL Practice Sessh", NULL, NULL);
 	if (!window)
 	{
 		glfwTerminate();
@@ -72,6 +87,26 @@ int main(int argc, char** argv) {
 	}
 
 
+	std::cout << "OpenGL Version: " << glGetString(GL_VERSION) << "\n";
+
+
+	// ---------------------------------- PRACTICE CODE ---------------------------------2
+
+	float buPositions[6] = {
+		-0.2f, -0.2f,
+		0.3f, 0.8f,
+		0.8f, -0.2f
+	};
+
+
+	unsigned int buffer_uno;
+	glGenBuffers(1, &buffer_uno);
+	glBindBuffer(GL_ARRAY_BUFFER, buffer_uno);
+	glBufferData(GL_ARRAY_BUFFER, (6 * sizeof(float)), buPositions, GL_STATIC_DRAW);
+		
+
+	// ----------------------------------END PRACTICE CODE ---------------------------------2
+
 
 
 
@@ -84,16 +119,39 @@ int main(int argc, char** argv) {
 
 
 
-		// ---------------------------------- PRACTICE CODE ----------------------------------
+		// ---------------------------------- PRACTICE CODE ----------------------------------1
 
 
-		trimove();
+		glColor3f(0.7f, 0.4f, 1.0f);
+		trimove(tv0, tvmod0);
 		glBegin(GL_TRIANGLES);
-		glVertex2f(tv[0], tv[1]);
-		glVertex2f(tv[2], tv[3]);
-		glVertex2f(tv[4], tv[5]);
+		glVertex2f(tv0[0], tv0[1]);
+		glVertex2f(tv0[2], tv0[3]);
+		glVertex2f(tv0[4], tv0[5]);
 		glEnd();
-		// -------------------------------- END PRACTICE CODE --------------------------------
+
+		glColor3f(0.5f, 0.0f, 1.0f);
+		trimove(tv1, tvmod1);
+		glBegin(GL_TRIANGLES);
+		glVertex2f(tv1[0], tv1[1]);
+		glVertex2f(tv1[2], tv1[3]);
+		glVertex2f(tv1[4], tv1[5]);
+		glEnd();
+		// -------------------------------- END PRACTICE CODE --------------------------------1
+
+
+
+
+		// ---------------------------------- PRACTICE CODE ---------------------------------2
+
+		glDrawArrays(GL_TRIANGLES, 0, 3);
+		glDrawElements(GL_TRIANGLES)
+
+// ----------------------------------END PRACTICE CODE ---------------------------------2
+//video 5, TimeStamp: 4:14
+
+
+
 
 		/* Swap front and back buffers */
 		glfwSwapBuffers(window);
