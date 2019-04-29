@@ -1,0 +1,25 @@
+
+
+ALL CONFIGS and x64 Architecture
+
+output dir - $(SolutionDir)\bin\$(Platform)\$(Configuration)\
+intermediates dir - $(SolutionDir)\bin\$(Platform)\$(Configuration)\intermediates\
+
+
+
+C++ -- General 
+Additional Include Dirs - $(SolutionDir)Dependencies\GLFW\include
+						- $(SolutionDir)Dependencies\GLEW\include\
+						
+
+C++ -- Preprocessor
+Preprocessor Definitions - GLEW_STATIC;
+
+
+Linker -- General
+Additional Library Dirs - $(SolutionDir)Dependencies\GLFW\lib-vc2017\
+						- $(SolutionDir)\Dependencies\GLEW\lib\Release\x64\
+
+
+Linker -- Input
+Additional Dependencies - glfw3.lib; opengl32.lib; glew32s.lib
