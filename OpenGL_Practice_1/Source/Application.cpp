@@ -153,7 +153,7 @@ int main(int argc, char** argv) {
 		//glDrawElements(GL_TRIANGLES);
 
 // ----------------------------------END PRACTICE CODE ---------------------------------2
-//video 5, TimeStamp: 4:14
+
 
 
 
