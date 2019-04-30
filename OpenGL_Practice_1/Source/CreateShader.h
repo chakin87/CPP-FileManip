@@ -9,12 +9,31 @@
 
 static int CompileShader(unsigned int type, const std::string& source) {
 
-	unsigned int id = glCreateShader(GL_VERTEX_SHADER);
+	unsigned int id = glCreateShader(type);
 	const char* src = source.c_str();
 	glShaderSource(id, 1, &src, nullptr);
 	glCompileShader(id);
+	// TODO: assert shader compilation...
 
-	// TODO: Error Checking
+	int result;
+	glGetShaderiv(id, GL_COMPILE_STATUS, &result);
+	if (result == GL_FALSE) {
+		int length;
+		glGetShaderiv(id, GL_INFO_LOG_LENGTH, &length);
+		// Work-around for char message[length]; 
+		// This is a stack allocated array with a non-predetermined size!
+		char* message = (char*)alloca(length * sizeof(char));
+
+		glGetShaderInfoLog(id, length, &length, message);
+		std::cout << "Failed to compile " <<
+			(type == GL_VERTEX_SHADER ? "vertex:\n" : "fragment:\n") << message;
+		glDeleteShader(id);
+		return 0;
+	}
+
+
+
+	return id;
 }
 
 
@@ -32,5 +51,5 @@ static int CreateShader(const std::string& vertexShader, const std::string fragm
 	glDeleteShader(vs);
 	glDeleteShader(fs);
 
-	// Video 7; Timestamp: 13:14
+	return program;
 }
