@@ -93,9 +93,9 @@ int main(int argc, char** argv) {
 	// ---------------------------------- PRACTICE CODE ---------------------------------2
 
 	float buPositions[6] = {
-		-0.2f, -0.2f,
-		0.3f, 0.8f,
-		0.8f, -0.2f
+		-0.5f, -0.5f,
+		 0.0f,  0.5f,
+		 0.5f, -0.5f
 	};
 
 
@@ -103,6 +103,11 @@ int main(int argc, char** argv) {
 	glGenBuffers(1, &buffer_uno);
 	glBindBuffer(GL_ARRAY_BUFFER, buffer_uno);
 	glBufferData(GL_ARRAY_BUFFER, (6 * sizeof(float)), buPositions, GL_STATIC_DRAW);
+
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, 0);
+
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
 		
 
 	// ----------------------------------END PRACTICE CODE ---------------------------------2
@@ -144,8 +149,8 @@ int main(int argc, char** argv) {
 
 		// ---------------------------------- PRACTICE CODE ---------------------------------2
 
-		glDrawArrays(GL_TRIANGLES, 0, 3);
-		glDrawElements(GL_TRIANGLES)
+		//glDrawArrays(GL_TRIANGLES, 0, 3);
+		//glDrawElements(GL_TRIANGLES);
 
 // ----------------------------------END PRACTICE CODE ---------------------------------2
 //video 5, TimeStamp: 4:14
