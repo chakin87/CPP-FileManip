@@ -154,13 +154,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Application.cpp" />
-    <ClCompile Include="Source\LegacyTriangles.cpp" />
+    <ClCompile Include="Source\LegacyTriangles.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CreateShader.h" />
+    <ClInclude Include="Source\DrawSquare.h" />
+    <ClInclude Include="Source\GL_ErrorHandling.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Shaders\shader.shader" />
+    <None Include="Resources\Shaders\basic.shader" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -21,7 +21,7 @@
     <ClCompile Include="Source\Application.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Source\LegacyTriangles.cpp">
+    <ClCompile Include="Source\LegacyTriangles.h">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -29,8 +29,14 @@
     <ClInclude Include="Source\CreateShader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\DrawSquare.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GL_ErrorHandling.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Shaders\shader.shader" />
+    <None Include="Resources\Shaders\basic.shader" />
   </ItemGroup>
 </Project>

@@ -1,2 +1,4 @@
 ﻿  Application.cpp
+c:\cpp\opengl_practice_1\opengl_practice_1\source\legacytriangles.h(20): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+c:\cpp\opengl_practice_1\opengl_practice_1\source\legacytriangles.h(30): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
   OpenGL_Practice_1.vcxproj -> C:\CPP\OpenGL_Practice_1\\bin\x64\Debug\OpenGL_Practice_1.exe
