@@ -43,7 +43,7 @@ static ShaderProgramSource ParseShader(const std::string& filepath) {
 			}
 		}
 		else {
-			std::cout << "\n\nType: " << (int)type << "\n\n";
+			//std::cout << "\n\nType: " << (int)type << "\n\n";
 			ss[(int)(type)] << line << '\n';
 		}
 	}
