@@ -17,6 +17,6 @@ public:// Methods
 
 
 private://Members
-	unsigned int m_Rende//video 14; TimeStamp: 22:40
+	unsigned int m_Rende;//video 14; TimeStamp: 22:40
 };
 
