@@ -154,6 +154,7 @@
     <Text Include="ProjectReferences\ProjectSolutionChanges.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Source\Shader.cpp" />
     <ClCompile Include="Source\IndexBuffer.cpp" />
     <ClCompile Include="Source\Renderer.cpp" />
     <ClCompile Include="Source\Application.cpp" />
@@ -162,6 +163,7 @@
     <ClCompile Include="Source\VertexArray.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Shader.h" />
     <ClInclude Include="Source\IndexBuffer.h" />
     <ClInclude Include="Source\Renderer.h" />
     <ClInclude Include="Source\CreateShader.h" />

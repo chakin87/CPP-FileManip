@@ -10,7 +10,9 @@
 //#include "GL_ErrorHandling.h"
 #include "Renderer.h"
 #include "VertexBuffer.h"
+#include "VertexArray.h"
 #include "IndexBuffer.h"
+#include "Shader.h"
 
 
 
@@ -85,30 +87,21 @@ int main(int argc, char** argv) {
 		//    This is the Necessary Code to bind and generate the buffers for our square to draw
 		// VAO
 	unsigned int vao;
-	GLCall(glGenVertexArrays(1, &vao));
-	GLCall(glBindVertexArray(vao));
 
+	VertexArray va;
 	VertexBuffer vb(positions, 4 * 2 * sizeof(float));
-					//unsigned int buffer;
-					//glGenBuffers(1, &buffer);
-					//glBindBuffer(GL_ARRAY_BUFFER, buffer);
-					//glBufferData(GL_ARRAY_BUFFER, (6 * 2 * sizeof(float)), positions, GL_STATIC_DRAW);
 
-	glEnableVertexAttribArray(0);// This eneables Array 0
-	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, 0);// This line links vao and buffer with array 0
+	VertexBufferLayout layout;
+	layout.Push<float>(2);
+	va.AddBuffer(vb, layout);
+
+				//	glEnableVertexAttribArray(0);// This eneables Array 0
+				//	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, 0);// This line links vao and buffer with array 0
 
 	IndexBuffer ib(indices, 6);
-					//unsigned int indexBufferObject; //ibo
-					//glGenBuffers(1, &indexBufferObject);
-					//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBufferObject);
-					//glBufferData(GL_ELEMENT_ARRAY_BUFFER, (6 * sizeof(unsigned int)), indices, GL_STATIC_DRAW);
-
-
-	ShaderProgramSource source = ParseShader("Resources/Shaders/basic.shader");
-	std::cout << "Vertex:\n" << source.VertexSource << "\nFragment:\n" << source.FragmentSource << "\n";
-
-
-	unsigned int shader = CreateShader(source.VertexSource, source.FragmentSource);
+				
+	Shader shader("Resources/shaders/basic.shader");// VIDEO 15; Time_Stamp: 16:09; 5/5/19;
+	shader.Bind();
 
 	// Bind the new shader
 	glUseProgram(shader);
@@ -138,7 +131,8 @@ int main(int argc, char** argv) {
 		glUseProgram(shader);
 		glUniform4f(location, r, 0.1f, 0.6f, 1.0f);
 
-		glBindVertexArray(vao);
+						//glBindVertexArray(vao);
+		va.Bind();
 		ib.Bind();
 		//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBufferObject);
 // This draws our indices square

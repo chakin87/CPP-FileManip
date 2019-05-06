@@ -3,6 +3,8 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
 
+// TODO: Delete this file
+
 
 #define ASSERT(X) if (!(X)) __debugbreak();
 

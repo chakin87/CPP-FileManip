@@ -12,11 +12,12 @@ public:
 public:// Methods
 
 	void AddBuffer(const VertexBuffer& vb, const VertexBufferLayout& layout);
-
+	void Bind() const;
+	void Unbind() const;
 
 
 
 private://Members
-	unsigned int m_Rende;//video 14; TimeStamp: 22:40
+	unsigned int m_RendererID;
 };
 
