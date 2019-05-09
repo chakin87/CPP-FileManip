@@ -5,7 +5,7 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
 
-#include "CreateShader.h"
+//#include "CreateShader.h"
 #include "LegacyTriangles.h"
 //#include "GL_ErrorHandling.h"
 #include "Renderer.h"
@@ -100,17 +100,16 @@ int main(int argc, char** argv) {
 
 	IndexBuffer ib(indices, 6);
 				
-	Shader shader("Resources/shaders/basic.shader");// VIDEO 15; Time_Stamp: 16:09; 5/5/19;
+	Shader shader("Resources/shaders/basic.shader");
 	shader.Bind();
+	shader.SetUniform4f("u_Color", 0.3f, 0.1f, 0.6f, 1.0f);
 
-	// Bind the new shader
-	glUseProgram(shader);
+	va.Unbind();
+	vb.Unbind();
+	ib.Unbind();
+	shader.Unbind();
 
-	//glBindBuffer(GL_ARRAY_BUFFER, 0);
 
-	int location = glGetUniformLocation(shader, "u_Color");
-	ASSERT(location != -1);
-	glUniform4f(location, 0.3f, 0.1f, 0.6f, 1.0f);
 
 	float r = 0.0f;
 	float rIncr = .05f;
@@ -128,8 +127,8 @@ int main(int argc, char** argv) {
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		// ---------------------------------- PRACTICE CODE ---------------------------------2
-		glUseProgram(shader);
-		glUniform4f(location, r, 0.1f, 0.6f, 1.0f);
+		shader.Bind();
+		shader.SetUniform4f("u_Color", r, 0.1f, 0.6f, 1.0f);
 
 						//glBindVertexArray(vao);
 		va.Bind();
@@ -162,7 +161,7 @@ int main(int argc, char** argv) {
 	}
 
 	// Make sure to Delete the shader!!!
-	glDeleteProgram(shader);
+					//////////glDeleteProgram(shader);
 
 }// Added scope CLOSE to eliminate inf-loop
 	glfwTerminate();

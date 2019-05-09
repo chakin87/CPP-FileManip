@@ -166,9 +166,6 @@
     <ClInclude Include="Source\Shader.h" />
     <ClInclude Include="Source\IndexBuffer.h" />
     <ClInclude Include="Source\Renderer.h" />
-    <ClInclude Include="Source\CreateShader.h" />
-    <ClInclude Include="Source\DrawSquare.h" />
-    <ClInclude Include="Source\GL_ErrorHandling.h" />
     <ClInclude Include="Source\VertexBuffer.h" />
     <ClInclude Include="Source\VertexArray.h" />
     <ClInclude Include="Source\VertexBufferLayout.h" />

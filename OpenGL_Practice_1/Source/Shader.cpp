@@ -30,6 +30,11 @@ Shader::~Shader()
 	glDeleteProgram(m_RendererID);
 }
 
+void Shader::SetUniform1f(const std::string & name, float value)
+{
+	glUniform1f(GetuniformLocation(name), value);
+}
+
 void Shader::SetUniform4f(const std::string & name, float v0, float v1, float v2, float v3)
 {
 	glUniform4f(GetuniformLocation(name), v0, v1, v2, v3);
@@ -46,10 +51,16 @@ void Shader::Unbind() const
 }
 int Shader::GetuniformLocation(const std::string & name)
 {
+
+	if (m_UniformLocationCache.find(name) != m_UniformLocationCache.end()) {
+		return m_UniformLocationCache[name];
+	}
+
 	int location = glGetUniformLocation(m_RendererID, name.c_str());
 
 	if (location == -1)
 		std::cout << "Warning: Uniform '" << name << "' d.n.e.!\n";
+	m_UniformLocationCache[name] = location;
 	return location;
 }
 

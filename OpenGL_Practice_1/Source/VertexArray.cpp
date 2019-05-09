@@ -9,7 +9,6 @@ VertexArray::VertexArray()
 	//GLCall(glBindVertexArray(vao));
 }
 
-
 VertexArray::~VertexArray()
 {
 	glDeleteVertexArrays(1, &m_RendererID);
