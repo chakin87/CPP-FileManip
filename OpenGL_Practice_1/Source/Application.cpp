@@ -13,7 +13,7 @@
 #include "VertexArray.h"
 #include "IndexBuffer.h"
 #include "Shader.h"
-
+#include "Functions.h"
 
 
 
@@ -127,15 +127,15 @@ int main(int argc, char** argv) {
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		// ---------------------------------- PRACTICE CODE ---------------------------------2
-		shader.Bind();
+		///shader.Bind();
 		shader.SetUniform4f("u_Color", r, 0.1f, 0.6f, 1.0f);
 
 						//glBindVertexArray(vao);
-		va.Bind();
-		ib.Bind();
+		///va.Bind();
+	///	ib.Bind();
 		//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBufferObject);
 // This draws our indices square
-		GLCall(glDrawElements(GL_TRIANGLES, 6/*6 indices*/, GL_UNSIGNED_INT, nullptr));
+		///GLCall(glDrawElements(GL_TRIANGLES, 6/*6 indices*/, GL_UNSIGNED_INT, nullptr));
 
 		r += rIncr;
 		if (r > 1.0f) {

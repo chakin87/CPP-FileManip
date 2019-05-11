@@ -1,5 +1,6 @@
 #include "Shader.h"
-#include "Renderer.h"
+//#include "Renderer.h"
+#include "Functions.h"
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>

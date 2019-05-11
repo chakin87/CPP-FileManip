@@ -1,7 +1,7 @@
 #include "VertexArray.h"
 
-#include "Renderer.h"
-
+//#include "Renderer.h"
+#include "Functions.h"
 
 VertexArray::VertexArray()
 {

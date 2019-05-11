@@ -1,6 +1,6 @@
 #include "IndexBuffer.h"
-#include "Renderer.h"
-
+//#include "Renderer.h"
+#include "Functions.h"
 
 IndexBuffer::IndexBuffer()
 {
