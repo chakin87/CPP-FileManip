@@ -31,6 +31,11 @@ Shader::~Shader()
 	glDeleteProgram(m_RendererID);
 }
 
+void Shader::SetUniform1i(const std::string & name, int value)
+{
+	glUniform1i(GetuniformLocation(name), value);
+}
+
 void Shader::SetUniform1f(const std::string & name, float value)
 {
 	glUniform1f(GetuniformLocation(name), value);

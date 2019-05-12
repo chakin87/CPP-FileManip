@@ -14,7 +14,7 @@
 #include "IndexBuffer.h"
 #include "Shader.h"
 #include "Functions.h"
-
+#include "Texture.h"
 
 
 
@@ -30,7 +30,6 @@ int main(int argc, char** argv) {
 
 	std::cout << "Application.cpp " << __FUNCDNAME__ << "\n\n";
 
-	LegacyTriangles L;
 
 	GLFWwindow* window;
 
@@ -71,10 +70,10 @@ int main(int argc, char** argv) {
 	// ---------------------------------- PRACTICE CODE ---------------------------------2
 	{ // Added scope OPEN to eliminate inf-loop
 	float positions[] = {
-		-0.5f, -0.5f, //0
-		 0.5f, -0.5f, //1
-		 0.5f,  0.5f, //2
-		-0.5f,  0.5f, //3
+		-0.5f, -0.5f, 0.0f, 0.0f, //0
+		 0.5f, -0.5f, 1.0f, 0.0f, //1
+		 0.5f,  0.5f, 1.0f, 1.0f, //2
+		-0.5f,  0.5f, 0.0f, 1.0f  //3
 	};
 
 	// must use unsigned
@@ -88,33 +87,39 @@ int main(int argc, char** argv) {
 		// VAO
 	unsigned int vao;
 
+
+	//glEnable(GL_BLEND);
+	//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
 	VertexArray va;
-	VertexBuffer vb(positions, 4 * 2 * sizeof(float));
+	VertexBuffer vb(positions, 4 * 4 * sizeof(float));
 
 	VertexBufferLayout layout;
 	layout.Push<float>(2);
 	va.AddBuffer(vb, layout);
 
-				//	glEnableVertexAttribArray(0);// This eneables Array 0
-				//	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 2, 0);// This line links vao and buffer with array 0
-
 	IndexBuffer ib(indices, 6);
 				
 	Shader shader("Resources/shaders/basic.shader");
 	shader.Bind();
-	shader.SetUniform4f("u_Color", 0.3f, 0.1f, 0.6f, 1.0f);
+	//shader.SetUniform4f("u_Color", 0.3f, 0.1f, 0.6f, 1.0f);
+
+
+	Texture texture("Resources/Textures/health_pickup.png");
+	texture.Bind();
+	shader.SetUniform1i("u_Texture", 0);
 
 	va.Unbind();
 	vb.Unbind();
 	ib.Unbind();
 	shader.Unbind();
 
-
+	Renderer renderer;
 
 	float r = 0.0f;
-	float rIncr = .05f;
+	float rIncr = .0005f;
 	float b = 0.0f;
-	float bIncr = .05f;
+	float bIncr = .0005f;
 	// ----------------------------------END PRACTICE CODE ---------------------------------2
 
 
@@ -124,25 +129,20 @@ int main(int argc, char** argv) {
 	while (!glfwWindowShouldClose(window))
 	{
 		/* Render here */
-		glClear(GL_COLOR_BUFFER_BIT);
+		renderer.Clear();
 
 		// ---------------------------------- PRACTICE CODE ---------------------------------2
-		///shader.Bind();
-		shader.SetUniform4f("u_Color", r, 0.1f, 0.6f, 1.0f);
-
-						//glBindVertexArray(vao);
-		///va.Bind();
-	///	ib.Bind();
-		//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBufferObject);
-// This draws our indices square
-		///GLCall(glDrawElements(GL_TRIANGLES, 6/*6 indices*/, GL_UNSIGNED_INT, nullptr));
+		shader.Bind();
+		shader.SetUniform1i("u_Texture", 0);
+		
+		renderer.Draw(va, ib, shader);
 
 		r += rIncr;
 		if (r > 1.0f) {
-			rIncr = -0.05f;
+			rIncr = -rIncr;
 		}
 		else if (r < 0.0f) {
-			rIncr = 0.05f;
+			rIncr = -rIncr;
 		}
 		b += bIncr;
 		if (b > 1.0f) {

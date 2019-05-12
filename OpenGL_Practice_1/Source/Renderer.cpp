@@ -12,6 +12,11 @@ Renderer::~Renderer()
 {
 }
 
+void Renderer::Clear()
+{
+	glClear(GL_COLOR_BUFFER_BIT);
+}
+
 void Renderer::Draw(const VertexArray & va, const IndexBuffer & ib, const Shader & shader) const
 {
 

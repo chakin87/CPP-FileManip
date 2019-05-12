@@ -11,6 +11,7 @@ public: // Constructors/Destructors
 	~Renderer();
 
 public: // Methods
+	void Clear();
 	void Draw(const VertexArray& va, const IndexBuffer& ib, const Shader& shader) const;
 
 private:
