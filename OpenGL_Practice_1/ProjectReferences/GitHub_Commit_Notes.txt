@@ -18,3 +18,5 @@
 +added std_image
 +added texture class
 +implemented Texture class 
+
+Find the BUG
