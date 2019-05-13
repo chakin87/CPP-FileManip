@@ -88,13 +88,14 @@ int main(int argc, char** argv) {
 	unsigned int vao;
 
 
-	//glEnable(GL_BLEND);
-	//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	VertexArray va;
 	VertexBuffer vb(positions, 4 * 4 * sizeof(float));
 
 	VertexBufferLayout layout;
+	layout.Push<float>(2);
 	layout.Push<float>(2);
 	va.AddBuffer(vb, layout);
 

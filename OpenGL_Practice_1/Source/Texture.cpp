@@ -26,6 +26,9 @@ Texture::Texture(const std::string & path)
 	glBindTexture(GL_TEXTURE_2D, 0);
 
 
+	if (m_LocalBuffer)
+		stbi_image_free(m_LocalBuffer);
+
 }
 
 Texture::~Texture()
