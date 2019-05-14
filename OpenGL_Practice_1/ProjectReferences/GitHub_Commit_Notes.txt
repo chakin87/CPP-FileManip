@@ -8,15 +8,25 @@
 +Abstraction
 
 ----------------------------------------------------5/8/19----------------------------------------------------
-// VIDEO 16; Time_Stamp: 04:09; 5/8/19;
+
 
 ----------------------------------------------------5/8/19----------------------------------------------------
-// VIDEO 16; Time_Stamp: 07:09; 5/9/19;
+
 
 ----------------------------------------------------5/8/19----------------------------------------------------
-// VIDEO 17; Time_Stamp: 17?:??; 5/10/19;
+
 +added std_image
 +added texture class
 +implemented Texture class 
 
 Find the BUG
+
+----------------------------------------------------5/8/19----------------------------------------------------
+// VIDEO 20; Time_Stamp: 17?:??; 5/13/19;
+
++texture class
+*shader class update
++added glm
++updated Shader.basic to support the mat4
++updated Shader Class with SetUniformMat4f();
+Found the BUG

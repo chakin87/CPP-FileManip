@@ -16,6 +16,9 @@
 #include "Functions.h"
 #include "Texture.h"
 
+#include "glm/glm.hpp"
+#include "glm/gtc/matrix_transform.hpp"
+
 
 
 
@@ -101,10 +104,16 @@ int main(int argc, char** argv) {
 
 	IndexBuffer ib(indices, 6);
 				
+
+	glm::mat4 proj = glm::ortho(-2.0f, 2.0f, -1.5f, 1.5f, -1.0f, 1.0f);
+
+
 	Shader shader("Resources/shaders/basic.shader");
 	shader.Bind();
-	//shader.SetUniform4f("u_Color", 0.3f, 0.1f, 0.6f, 1.0f);
-
+	
+	// TODO: this is not supposed to be interfering with the app, but it is??
+	///shader.SetUniform4f("u_Color", 0.3f, 0.1f, 0.6f, 1.0f);
+	shader.SetUniformMat4f("u_MVP", proj);
 
 	Texture texture("Resources/Textures/health_pickup.png");
 	texture.Bind();

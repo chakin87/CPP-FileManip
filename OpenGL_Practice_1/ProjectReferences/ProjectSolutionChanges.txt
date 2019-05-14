@@ -10,6 +10,7 @@ intermediates dir - $(SolutionDir)\bin\$(Platform)\$(Configuration)\intermediate
 C++ -- General 
 Additional Include Dirs - $(SolutionDir)Dependencies\GLFW\include
 						- $(SolutionDir)Dependencies\GLEW\include\
+						- $(SolutionDir)OpenGL_Practice_1\Source\Vender\
 						
 
 C++ -- Preprocessor
