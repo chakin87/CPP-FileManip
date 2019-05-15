@@ -11,6 +11,7 @@ C++ -- General
 Additional Include Dirs - $(SolutionDir)Dependencies\GLFW\include
 						- $(SolutionDir)Dependencies\GLEW\include\
 						- $(SolutionDir)OpenGL_Practice_1\Source\Vender\
+						- $(SolutionDir)OpenGL_Practice_1\Source
 						
 
 C++ -- Preprocessor
@@ -24,3 +25,7 @@ Additional Library Dirs - $(SolutionDir)Dependencies\GLFW\lib-vc2017\
 
 Linker -- Input
 Additional Dependencies - glfw3.lib; opengl32.lib; glew32s.lib
+
+
+Vendors ----
+stb_image - A single header file that provides functions for uploading textures to the gpu

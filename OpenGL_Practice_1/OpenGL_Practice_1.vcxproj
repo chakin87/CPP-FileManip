@@ -91,7 +91,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)OpenGL_Practice_1\Source\Vender;$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\GLEW\include\;$(SolutionDir)Dependencies\glad\src\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)OpenGL_Practice_1\Source;$(SolutionDir)OpenGL_Practice_1\Source\Vender;$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\GLEW\include\;$(SolutionDir)Dependencies\glad\src\</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>GLEW_STATIC;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -105,7 +105,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)OpenGL_Practice_1\Source\Vender;$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\GLEW\include\;$(SolutionDir)Dependencies\glad\src\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)OpenGL_Practice_1\Source;$(SolutionDir)OpenGL_Practice_1\Source\Vender;$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\GLEW\include\;$(SolutionDir)Dependencies\glad\src\</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>GLEW_STATIC;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -121,7 +121,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)OpenGL_Practice_1\Source\Vender;$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\GLEW\include\;$(SolutionDir)Dependencies\glad\src\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)OpenGL_Practice_1\Source;$(SolutionDir)OpenGL_Practice_1\Source\Vender;$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\GLEW\include\;$(SolutionDir)Dependencies\glad\src\</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>GLEW_STATIC;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -139,7 +139,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)OpenGL_Practice_1\Source\Vender;$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\GLEW\include\;$(SolutionDir)Dependencies\glad\src\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)OpenGL_Practice_1\Source;$(SolutionDir)OpenGL_Practice_1\Source\Vender;$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\GLEW\include\;$(SolutionDir)Dependencies\glad\src\</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>GLEW_STATIC;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -151,6 +151,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <Text Include="ProjectReferences\GitHub_Commit_Notes.txt" />
+    <Text Include="ProjectReferences\Highlights.txt" />
     <Text Include="ProjectReferences\ProjectSolutionChanges.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -161,10 +162,17 @@
     <ClCompile Include="Source\Application.cpp" />
     <ClCompile Include="Source\LegacyTriangles.h" />
     <ClCompile Include="Source\Vender\glm\detail\glm.cpp" />
+    <ClCompile Include="Source\Vender\ImGui\imgui.cpp" />
+    <ClCompile Include="Source\Vender\ImGui\imgui_demo.cpp" />
+    <ClCompile Include="Source\Vender\ImGui\imgui_draw.cpp" />
+    <ClCompile Include="Source\Vender\ImGui\imgui_impl_glfw.cpp" />
+    <ClCompile Include="Source\Vender\ImGui\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="Source\Vender\ImGui\imgui_widgets.cpp" />
     <ClCompile Include="Source\Vender\stb_image\stb_image.cpp" />
     <ClCompile Include="Source\VertexBuffer.cpp" />
     <ClCompile Include="Source\VertexArray.cpp" />
     <ClCompile Include="Source\Texture.cpp" />
+    <ClCompile Include="Source\Tests\TestClearColor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Functions.h" />
@@ -412,11 +420,21 @@
     <ClInclude Include="Source\Vender\glm\vec3.hpp" />
     <ClInclude Include="Source\Vender\glm\vec4.hpp" />
     <ClInclude Include="Source\Vender\glm\vector_relational.hpp" />
+    <ClInclude Include="Source\Vender\ImGui\imconfig.h" />
+    <ClInclude Include="Source\Vender\ImGui\imgui.h" />
+    <ClInclude Include="Source\Vender\ImGui\imgui_impl_glfw.h" />
+    <ClInclude Include="Source\Vender\ImGui\imgui_impl_opengl3.h" />
+    <ClInclude Include="Source\Vender\ImGui\imgui_internal.h" />
+    <ClInclude Include="Source\Vender\ImGui\imstb_rectpack.h" />
+    <ClInclude Include="Source\Vender\ImGui\imstb_textedit.h" />
+    <ClInclude Include="Source\Vender\ImGui\imstb_truetype.h" />
     <ClInclude Include="Source\Vender\stb_image\stb_image.h" />
     <ClInclude Include="Source\VertexBuffer.h" />
     <ClInclude Include="Source\VertexArray.h" />
     <ClInclude Include="Source\VertexBufferLayout.h" />
     <ClInclude Include="Source\Texture.h" />
+    <ClInclude Include="Source\Tests\Test.h" />
+    <ClInclude Include="Source\Tests\TestClearColor.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Shaders\basic.shader" />

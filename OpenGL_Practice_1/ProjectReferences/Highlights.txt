@@ -1,0 +1,4 @@
+
++Stack Based array with undetermined size - Shader.cpp
+	**// This is a stack allocated array with a non-predetermined size!
+	**	char* message = (char*)alloca(length * sizeof(char));
